@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="icon" href="icon.ico" type="image/x-icon">
+
+  <title>Arabify — Arabic Text Maker</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Cairo:wght@400;600;700;800;900&family=Changa:wght@400;600;700;800&family=El+Messiri:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Lemonada:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;500;600;700;800;900&family=Readex+Pro:wght@400;500;600;700&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ==================== TOP BAR ==================== -->
+  <header class="topbar">
+
+    <div class="brand">
+
+      <div class="logo" aria-hidden="true">
+        ✦
+      </div>
+
+      <div>
+        <b>Arabify</b>
+        <small>Canva-style • Layers</small>
+      </div>
+
+    </div>
+
+    <div class="actions">
+
+      <button
+        id="undo"
+        type="button"
+        aria-label="تراجع"
+        title="تراجع"
+      >
+        ↶
+      </button>
+
+      <button
+        id="redo"
+        type="button"
+        aria-label="إعادة"
+        title="إعادة"
+      >
+        ↷
+      </button>
+
+      <button
+        id="download"
+        type="button"
+        class="primary"
+      >
+        ⬇ تحميل PNG
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- ==================== BODY ==================== -->
+  <div class="body">
+
+    <!-- ==================== SIDEBAR ==================== -->
+    <aside class="sidebar">
+
+      <!-- Tabs -->
+      <div class="tabs">
+
+        <button
+          class="tab active"
+          type="button"
+          data-tab="textTab"
+        >
+          النص
+        </button>
+
+        <button
+          class="tab"
+          type="button"
+          data-tab="emojiTab"
+        >
+          إيموجي
+        </button>
+
+        <button
+          class="tab"
+          type="button"
+          data-tab="effectsTab"
+        >
+          ✨ التأثير
+        </button>
+
+        <button
+          class="tab"
+          type="button"
+          data-tab="layersTab"
+        >
+          ▤ الطبقات
+        </button>
+
+      </div>
+
+
+      <!-- ==================== TEXT TAB ==================== -->
+      <section
+        id="textTab"
+        class="tabcontent active"
+      >
+
+        <button
+          id="addText"
+          type="button"
+          class="wide primary"
+        >
+          ＋ إضافة خانة نص جديدة
+        </button>
+
+        <div class="tip">
+          كل ضغطة تضيف نصًا مستقلاً يمكنك سحبه لأي مكان.
+        </div>
+
+        <label for="text">
+          النص المحدد
+        </label>
+
+        <textarea id="text">فيديو جديد</textarea>
+
+
+        <label for="font">
+          الخط
+        </label>
+
+        <select id="font">
+
+          <option value="Cairo">
+            Cairo Black
+          </option>
+
+          <option value="Noto Kufi Arabic">
+            Noto Kufi Arabic
+          </option>
+
+          <option value="Tajawal">
+            Tajawal ExtraBold
+          </option>
+
+          <option value="Changa">
+            Changa
+          </option>
+
+          <option value="Almarai">
+            Almarai
+          </option>
+
+          <option value="Readex Pro">
+            Readex Pro
+          </option>
+
+          <option value="IBM Plex Sans Arabic">
+            IBM Plex Sans Arabic
+          </option>
+
+          <option value="Reem Kufi">
+            Reem Kufi
+          </option>
+
+          <option value="El Messiri">
+            El Messiri
+          </option>
+
+          <option value="Lemonada">
+            Lemonada
+          </option>
+
+        </select>
+
+
+        <label for="size">
+          الحجم
+          <output id="sizeOut">150</output>
+        </label>
+
+        <input
+          id="size"
+          type="range"
+          min="25"
+          max="400"
+          value="150"
+        >
+
+
+        <label for="rotate">
+          الدوران
+          <output id="rotateOut">0°</output>
+        </label>
+
+        <input
+          id="rotate"
+          type="range"
+          min="-180"
+          max="180"
+          value="0"
+        >
+
+
+        <div class="grid2">
+
+          <div>
+
+            <label for="c1">
+              لون 1
+            </label>
+
+            <input
+              id="c1"
+              type="color"
+              value="#fff200"
+            >
+
+          </div>
+
+
+          <div>
+
+            <label for="c2">
+              لون 2
+            </label>
+
+            <input
+              id="c2"
+              type="color"
+              value="#ff7800"
+            >
+
+          </div>
+
+        </div>
+
+
+        <label for="gradient">
+          نوع التدرج
+        </label>
+
+        <select id="gradient">
+
+          <option value="vertical">
+            تدرج عمودي
+          </option>
+
+          <option value="horizontal">
+            تدرج أفقي
+          </option>
+
+          <option value="solid">
+            لون واحد
+          </option>
+
+        </select>
+
+      </section>
+
+
+      <!-- ==================== EMOJI TAB ==================== -->
+      <section
+        id="emojiTab"
+        class="tabcontent"
+      >
+
+        <div class="tip appleOnly">
+          الإيموجيات هنا تُعرض كصور Apple من مجموعة Apple — وليست Emoji النظام.
+        </div>
+
+        <label for="emojiSearch">
+          البحث
+        </label>
+
+        <input
+          id="emojiSearch"
+          type="search"
+          placeholder="ابحث باسم الإيموجي..."
+          autocomplete="off"
+        >
+
+        <div
+          class="emojiGrid"
+          id="emojiGrid"
+        ></div>
+
+        <div class="tip">
+          اضغط على الإيموجي لإضافته كعنصر مستقل، ثم اسحبه فوق أو تحت النص.
+        </div>
+
+      </section>
+
+
+      <!-- ==================== EFFECTS TAB ==================== -->
+      <section
+        id="effectsTab"
+        class="tabcontent"
+      >
+
+        <div class="presets">
+
+          <button
+            type="button"
+            data-preset="youtube"
+          >
+            🔥 يوتيوب
+          </button>
+
+          <button
+            type="button"
+            data-preset="gold"
+          >
+            👑 ذهبي
+          </button>
+
+          <button
+            type="button"
+            data-preset="ice"
+          >
+            ❄️ جليدي
+          </button>
+
+          <button
+            type="button"
+            data-preset="neon"
+          >
+            💜 نيون
+          </button>
+
+          <button
+            type="button"
+            data-preset="comic"
+          >
+            💥 كوميك
+          </button>
+
+        </div>
+
+
+        <label for="stroke">
+          الحدود
+          <output id="strokeOut">12</output>
+        </label>
+
+        <input
+          id="stroke"
+          type="range"
+          min="0"
+          max="45"
+          value="12"
+        >
+
+
+        <div class="grid2">
+
+          <div>
+
+            <label for="strokeColor">
+              لون الحدود
+            </label>
+
+            <input
+              id="strokeColor"
+              type="color"
+              value="#111111"
+            >
+
+          </div>
+
+
+          <div>
+
+            <label for="glowColor">
+              لون Glow
+            </label>
+
+            <input
+              id="glowColor"
+              type="color"
+              value="#ffd400"
+            >
+
+          </div>
+
+        </div>
+
+
+        <label for="shadow">
+          الظل
+          <output id="shadowOut">20</output>
+        </label>
+
+        <input
+          id="shadow"
+          type="range"
+          min="0"
+          max="60"
+          value="20"
+        >
+
+
+        <label for="blur">
+          نعومة الظل
+          <output id="blurOut">6</output>
+        </label>
+
+        <input
+          id="blur"
+          type="range"
+          min="0"
+          max="35"
+          value="6"
+        >
+
+
+        <label for="glow">
+          Glow
+          <output id="glowOut">0</output>
+        </label>
+
+        <input
+          id="glow"
+          type="range"
+          min="0"
+          max="50"
+          value="0"
+        >
+
+
+        <label for="shine">
+          لمعة
+          <output id="shineOut">0</output>
+        </label>
+
+        <input
+          id="shine"
+          type="range"
+          min="0"
+          max="100"
+          value="0"
+        >
+
+
+        <label for="depth">
+          3D
+          <output id="depthOut">0</output>
+        </label>
+
+        <input
+          id="depth"
+          type="range"
+          min="0"
+          max="30"
+          value="0"
+        >
+
+      </section>
+
+
+      <!-- ==================== LAYERS TAB ==================== -->
+      <section
+        id="layersTab"
+        class="tabcontent"
+      >
+
+        <div class="layerButtons">
+
+          <button
+            id="up"
+            type="button"
+          >
+            ⬆ فوق
+          </button>
+
+          <button
+            id="down"
+            type="button"
+          >
+            ⬇ تحت
+          </button>
+
+          <button
+            id="top"
+            type="button"
+          >
+            ⤒ للأعلى
+          </button>
+
+          <button
+            id="bottom"
+            type="button"
+          >
+            ⤓ للأسفل
+          </button>
+
+        </div>
+
+        <div
+          id="layerList"
+          class="layerList"
+        ></div>
+
+      </section>
+
+
+      <!-- ==================== BOTTOM CONTROLS ==================== -->
+      <div class="bottom">
+
+        <label class="check">
+
+          <input
+            id="transparent"
+            type="checkbox"
+          >
+
+          خلفية شفافة
+
+        </label>
+
+
+        <div class="grid2">
+
+          <label for="W">
+            العرض
+
+            <input
+              id="W"
+              type="number"
+              min="1"
+              max="10000"
+              value="1200"
+            >
+
+          </label>
+
+
+          <label for="H">
+            الارتفاع
+
+            <input
+              id="H"
+              type="number"
+              min="1"
+              max="10000"
+              value="650"
+            >
+
+          </label>
+
+        </div>
+
+
+        <button
+          id="delete"
+          type="button"
+          class="danger wide"
+        >
+          🗑 حذف العنصر المحدد
+        </button>
+
+      </div>
+
+    </aside>
+
+
+    <!-- ==================== WORKSPACE ==================== -->
+    <main class="workspace">
+
+      <div class="workspaceHead">
+
+        <div>
+
+          <b>المسرح</b>
+
+          <span>
+            اضغط أي عنصر ثم اسحبه — كل عنصر مستقل
+          </span>
+
+        </div>
+
+        <span class="live">
+          ● LIVE
+        </span>
+
+      </div>
+
+
+      <div class="stageWrap">
+
+        <canvas
+          id="canvas"
+          width="1200"
+          height="650"
+        ></canvas>
+
+      </div>
+
+
+      <div class="toolbar">
+
+        <button
+          id="center"
+          type="button"
+        >
+          ⦿ توسيط
+        </button>
+
+        <button
+          id="reset"
+          type="button"
+        >
+          ⟳ إعادة ضبط العنصر
+        </button>
+
+      </div>
+
+    </main>
+
+  </div>
+
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+
+</body>
+</html>
