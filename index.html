@@ -1,430 +1,146 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-
-  <!-- ==================== SEO ==================== -->
-  <title>Arabify | زخرفة النصوص العربية وتصميم الأسماء أونلاين</title>
-  <meta name="description" content="Arabify محرر مجاني لزخرفة وتصميم النصوص والأسماء العربية أونلاين. اختر الخط والألوان والتدرجات والإيموجي وتأثيرات Glow وThreeD، وحمّل تصميمك بصيغة PNG أو JPG أو WebP بجودة عالية.">
-  <meta name="keywords" content="Arabify, زخرفة النصوص, زخرفة النصوص العربية, زخرفة أسماء, زخرفة اسماء, زخرفة أسماء عربية, زخرفة اسم للعبة, زخرفة اسم ديسكورد, زخرفة اسم ماينكرافت, Arabic Text Generator, Arabic Text Maker, Arabic Name Generator, Arabic Typography, Arabic Fonts, تصميم نص عربي, تصميم أسماء, مولد النصوص العربية">
-  <meta name="author" content="Arabify">
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <meta name="language" content="Arabic">
-
-  <link rel="canonical" href="https://arabify.ishak08bg.workers.dev/">
-
-  <!-- ==================== FAVICON / PWA ==================== -->
-  <link rel="icon" href="icon.ico" type="image/x-icon">
-  <link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
-  <link rel="apple-touch-icon" href="icon-192.png" sizes="192x192">
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#08090d">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Arabify">
-
-  <!-- ==================== OPEN GRAPH ==================== -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Arabify | زخرفة النصوص العربية وتصميم الأسماء">
-  <meta property="og:description" content="صمّم وزخرف النصوص والأسماء العربية بسهولة باستخدام الخطوط والألوان والتدرجات والإيموجي والتأثيرات.">
-  <meta property="og:url" content="https://arabify.ishak08bg.workers.dev/">
-  <meta property="og:image" content="https://arabify.ishak08bg.workers.dev/icon-192.png">
-  <meta property="og:site_name" content="Arabify">
-  <meta property="og:locale" content="ar_AR">
-
-  <!-- ==================== TWITTER / X ==================== -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Arabify | زخرفة النصوص العربية وتصميم الأسماء">
-  <meta name="twitter:description" content="أداة مجانية لتصميم وزخرفة النصوص والأسماء العربية وتحميلها بصيغة PNG.">
-  <meta name="twitter:image" content="https://arabify.ishak08bg.workers.dev/icon-192.png">
-
-  <!-- ==================== STRUCTURED DATA ==================== -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Arabify",
-    "alternateName": "Arabify Arabic Text Maker",
-    "url": "https://arabify.ishak08bg.workers.dev/",
-    "description": "أداة مجانية لتصميم وزخرفة النصوص والأسماء العربية باستخدام الخطوط والألوان والتدرجات والإيموجي والتأثيرات.",
-    "applicationCategory": "DesignApplication",
-    "operatingSystem": "Web Browser",
-    "browserRequirements": "Requires JavaScript",
-    "inLanguage": "ar",
-    "isAccessibleForFree": true,
-    "author": { "@type": "Organization", "name": "Arabify" },
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "هل Arabify مجاني؟",
-        "acceptedAnswer": { "@type": "Answer", "text": "نعم، يمكنك استخدام Arabify مجانًا بالكامل لتصميم وزخرفة النصوص والأسماء العربية وتحميل تصميمك بصيغة PNG." }
-      },
-      {
-        "@type": "Question",
-        "name": "هل يحفظ Arabify تصميمي تلقائيًا؟",
-        "acceptedAnswer": { "@type": "Answer", "text": "نعم، يحفظ Arabify مشروعك تلقائيًا في المتصفح، ويمكنك أيضًا تصدير المشروع كملف لاسترجاعه لاحقًا." }
-      }
-    ]
-  }
-  </script>
-
-  <!-- ==================== FONTS ==================== -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Cairo:wght@400;600;700;800;900&family=Changa:wght@400;600;700;800&family=El+Messiri:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Lemonada:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;500;600;700;800;900&family=Readex+Pro:wght@400;500;600;700&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Arabify | منصة تصميم وزخرفة النصوص العربية</title>
+<meta name="description" content="صمّم، انشر، واكتشف تصاميم عربية إبداعية على Arabify — محرر زخرفة نصوص عربي مع مجتمع لمشاركة التصاميم واكتشاف أعمال الآخرين.">
+<link rel="canonical" href="https://arabify.ishak08bg.workers.dev/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Arabify | منصة تصميم وزخرفة النصوص العربية">
+<meta property="og:description" content="صمّم وانشر واكتشف تصاميم عربية إبداعية.">
+<meta property="og:image" content="https://arabify.ishak08bg.workers.dev/icon-192.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="icon.ico" type="image/x-icon">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#08090d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
 </head>
-
 <body>
 
-  <!-- ==================== TOP BAR ==================== -->
-  <header class="topbar">
-    <div class="brand">
-      <div class="logo" aria-hidden="true">✦</div>
-      <div>
-        <b>Arabify</b>
-        <small>محرر زخرفة النصوص العربية</small>
+<!-- ==================== NAVBAR ==================== -->
+<header class="nav">
+  <div class="container">
+    <a href="index.html" class="nav-brand">
+      <div class="nav-logo">✦</div>
+      <b>Arabify</b>
+    </a>
+    <nav class="nav-links" aria-label="التنقل الرئيسي">
+      <a href="index.html" class="nav-link active">الرئيسية</a>
+      <a href="explore.html" class="nav-link">استكشف</a>
+      <a href="editor.html" class="nav-link">إنشاء</a>
+    </nav>
+    <label class="nav-search">
+      🔍<input type="search" placeholder="ابحث عن تصاميم، مستخدمين، وسوم..." aria-label="بحث">
+    </label>
+    <div class="nav-right">
+      
+
+      <div id="navGuest" style="display:flex;gap:8px">
+        <button class="btn btn-ghost" data-modal-open="loginModal">تسجيل الدخول</button>
+        <a href="editor.html" class="btn btn-primary">ابدأ التصميم</a>
+      </div>
+
+      <div id="navUser" class="menu-wrap" style="display:none">
+        <button id="navMenuToggle" style="background:none;border:0;cursor:pointer;padding:0">
+          <img id="navAvatarImg" class="nav-avatar" src="assets/default-avatar.svg" alt="حسابك">
+        </button>
+        <div id="navUserMenu" class="menu">
+          <a class="menu-item" href="dashboard.html">🏠 لوحة التحكم</a>
+          <a class="menu-item" href="profile.html">👤 ملفي الشخصي</a>
+          <a class="menu-item" href="saved.html">🔖 المحفوظات</a>
+          <a class="menu-item" href="settings.html">⚙️ الإعدادات</a>
+          <div class="menu-sep"></div>
+          <button class="menu-item" id="logoutBtn">🚪 تسجيل الخروج</button>
+        </div>
       </div>
     </div>
-
-    <div class="projectbar">
-      <input id="projectName" class="projectname" type="text" value="مشروع بدون اسم" aria-label="اسم المشروع" title="اسم المشروع">
-    </div>
-
-    <div class="actions">
-      <button id="newProject" type="button" aria-label="مشروع جديد" title="مشروع جديد (بدون حفظ يفقد التعديلات)">🆕 <span class="label">جديد</span></button>
-      <button id="saveProject" type="button" aria-label="حفظ المشروع" title="حفظ المشروع محليًا (Ctrl+S)">💾 <span class="label">حفظ</span></button>
-      <button id="exportJson" type="button" aria-label="تصدير المشروع كملف" title="تصدير المشروع (JSON)">📤</button>
-      <button id="importJsonBtn" type="button" aria-label="استيراد مشروع" title="استيراد مشروع (JSON)">📥</button>
-      <input id="importJsonInput" type="file" accept="application/json" class="sr-only">
-      <div class="divider-v" aria-hidden="true"></div>
-      <button id="undo" type="button" aria-label="تراجع" title="تراجع (Ctrl+Z)">↶</button>
-      <button id="redo" type="button" aria-label="إعادة" title="إعادة (Ctrl+Y)">↷</button>
-      <div class="divider-v" aria-hidden="true"></div>
-      <button id="download" type="button" class="primary" aria-label="تحميل التصميم" title="تحميل التصميم (Ctrl+E)">⬇ <span class="label">تحميل</span></button>
-    </div>
-  </header>
-
-  <!-- ==================== BODY ==================== -->
-  <div class="body">
-
-    <!-- ==================== SIDEBAR ==================== -->
-    <aside class="sidebar">
-
-      <div class="tabs" role="tablist" aria-label="أدوات التحرير">
-        <button class="tab active" type="button" data-tab="textTab" role="tab" aria-selected="true">النص</button>
-        <button class="tab" type="button" data-tab="emojiTab" role="tab" aria-selected="false">إيموجي</button>
-        <button class="tab" type="button" data-tab="effectsTab" role="tab" aria-selected="false">✨ تأثير</button>
-        <button class="tab" type="button" data-tab="templatesTab" role="tab" aria-selected="false">🎨 قوالب</button>
-        <button class="tab" type="button" data-tab="layersTab" role="tab" aria-selected="false">▤ طبقات</button>
-      </div>
-
-      <!-- ==================== TEXT TAB ==================== -->
-      <section id="textTab" class="tabcontent active">
-
-        <button id="addText" type="button" class="wide primary">＋ إضافة خانة نص جديدة</button>
-        <div class="tip">كل ضغطة تضيف نصًا مستقلاً يمكنك سحبه لأي مكان. اضغط مزدوجًا على العنصر بالمسرح لتحريره مباشرة.</div>
-
-        <label for="text">النص المحدد</label>
-        <textarea id="text" aria-label="محتوى النص">فيديو جديد</textarea>
-
-        <label for="font">الخط</label>
-        <select id="font">
-          <option value="Cairo">Cairo Black</option>
-          <option value="Noto Kufi Arabic">Noto Kufi Arabic</option>
-          <option value="Tajawal">Tajawal ExtraBold</option>
-          <option value="Changa">Changa</option>
-          <option value="Almarai">Almarai</option>
-          <option value="Readex Pro">Readex Pro</option>
-          <option value="IBM Plex Sans Arabic">IBM Plex Sans Arabic</option>
-          <option value="Reem Kufi">Reem Kufi</option>
-          <option value="El Messiri">El Messiri</option>
-          <option value="Lemonada">Lemonada</option>
-        </select>
-
-        <label>الطراز والمحاذاة</label>
-        <div class="rowbtns">
-          <button id="boldBtn" type="button" title="عريض (Bold)"><b>B</b></button>
-          <button id="italicBtn" type="button" title="مائل (Italic)"><i>I</i></button>
-          <button id="alignRight" type="button" title="محاذاة يمين">⇥</button>
-          <button id="alignCenter" type="button" title="محاذاة وسط">⇔</button>
-          <button id="alignLeft" type="button" title="محاذاة يسار">⇤</button>
-          <button id="flipH" type="button" title="عكس أفقي">⇄</button>
-          <button id="flipV" type="button" title="عكس رأسي">⇅</button>
-        </div>
-
-        <label for="size">الحجم <output id="sizeOut">150</output></label>
-        <input id="size" type="range" min="12" max="400" value="150">
-
-        <label for="letterSpacing">تباعد الأحرف <output id="letterSpacingOut">0</output></label>
-        <input id="letterSpacing" type="range" min="-20" max="60" value="0">
-
-        <label for="lineHeight">تباعد الأسطر <output id="lineHeightOut">1.2</output></label>
-        <input id="lineHeight" type="range" min="70" max="220" value="120">
-
-        <label for="opacity">الشفافية <output id="opacityOut">100</output></label>
-        <input id="opacity" type="range" min="0" max="100" value="100">
-
-        <label for="rotate">الدوران <output id="rotateOut">0°</output></label>
-        <input id="rotate" type="range" min="-180" max="180" value="0">
-
-        <div class="grid2">
-          <div>
-            <label for="posX">الموقع X</label>
-            <input id="posX" type="number">
-          </div>
-          <div>
-            <label for="posY">الموقع Y</label>
-            <input id="posY" type="number">
-          </div>
-        </div>
-
-        <div class="grid2">
-          <div>
-            <label for="c1">لون 1</label>
-            <input id="c1" type="color" value="#fff200">
-          </div>
-          <div>
-            <label for="c2">لون 2</label>
-            <input id="c2" type="color" value="#ff7800">
-          </div>
-        </div>
-
-        <label for="gradient">نوع التدرج</label>
-        <select id="gradient">
-          <option value="vertical">تدرج عمودي</option>
-          <option value="horizontal">تدرج أفقي</option>
-          <option value="solid">لون واحد</option>
-        </select>
-      </section>
-
-      <!-- ==================== EMOJI TAB ==================== -->
-      <section id="emojiTab" class="tabcontent">
-        <div class="tip appleOnly">الإيموجيات هنا تُعرض كصور Apple عالية الجودة — وليست Emoji النظام.</div>
-
-        <label for="emojiSearch">البحث</label>
-        <input id="emojiSearch" type="search" placeholder="ابحث باسم الإيموجي..." autocomplete="off">
-
-        <div class="emojiCats" id="emojiCats" role="tablist" aria-label="تصنيفات الإيموجي"></div>
-        <div class="emojiGrid" id="emojiGrid" role="list" aria-label="قائمة الإيموجي"></div>
-
-        <div class="tip">اضغط على الإيموجي لإضافته كعنصر مستقل، ثم اسحبه فوق أو تحت النص.</div>
-      </section>
-
-      <!-- ==================== EFFECTS TAB ==================== -->
-      <section id="effectsTab" class="tabcontent">
-        <div class="panel-title">تأثيرات جاهزة</div>
-        <div class="presets">
-          <button type="button" data-preset="youtube">🔥 يوتيوب</button>
-          <button type="button" data-preset="gold">👑 ذهبي</button>
-          <button type="button" data-preset="ice">❄️ جليدي</button>
-          <button type="button" data-preset="neon">💜 نيون</button>
-          <button type="button" data-preset="comic">💥 كوميك</button>
-          <button type="button" data-preset="cyberpunk">🤖 سايبربانك</button>
-          <button type="button" data-preset="rainbow">🌈 قوس قزح</button>
-          <button type="button" data-preset="metallic">⚙️ معدني</button>
-          <button type="button" data-preset="glass">🧊 زجاجي</button>
-          <button type="button" data-preset="gaming">🎮 قيمنق</button>
-          <button type="button" data-preset="mlg">🕶️ MLG</button>
-        </div>
-
-        <label for="stroke">الحدود <output id="strokeOut">12</output></label>
-        <input id="stroke" type="range" min="0" max="45" value="12">
-
-        <div class="grid2">
-          <div>
-            <label for="strokeColor">لون الحدود</label>
-            <input id="strokeColor" type="color" value="#111111">
-          </div>
-          <div>
-            <label for="glowColor">لون Glow</label>
-            <input id="glowColor" type="color" value="#ffd400">
-          </div>
-        </div>
-
-        <label for="shadow">الظل <output id="shadowOut">20</output></label>
-        <input id="shadow" type="range" min="0" max="60" value="20">
-
-        <label for="blur">نعومة الظل <output id="blurOut">6</output></label>
-        <input id="blur" type="range" min="0" max="35" value="6">
-
-        <label for="glow">Glow <output id="glowOut">0</output></label>
-        <input id="glow" type="range" min="0" max="50" value="0">
-
-        <label for="shine">لمعة <output id="shineOut">0</output></label>
-        <input id="shine" type="range" min="0" max="100" value="0">
-
-        <label for="depth">3D <output id="depthOut">0</output></label>
-        <input id="depth" type="range" min="0" max="30" value="0">
-      </section>
-
-      <!-- ==================== TEMPLATES TAB ==================== -->
-      <section id="templatesTab" class="tabcontent">
-        <div class="panel-title">قوالب جاهزة — اضغط لتطبيقها ثم عدّلها كما تريد</div>
-        <div class="templates" id="templatesGrid"></div>
-      </section>
-
-      <!-- ==================== LAYERS TAB ==================== -->
-      <section id="layersTab" class="tabcontent">
-        <div class="layerButtons">
-          <button id="up" type="button" title="لأعلى طبقة">⬆</button>
-          <button id="down" type="button" title="لأسفل طبقة">⬇</button>
-          <button id="top" type="button" title="للأعلى تمامًا">⤒</button>
-          <button id="bottom" type="button" title="للأسفل تمامًا">⤓</button>
-        </div>
-        <div class="rowbtns" style="margin-bottom:10px">
-          <button id="duplicateBtn" type="button" title="تكرار (Ctrl+D)">⧉ تكرار</button>
-          <button id="lockBtn" type="button" title="قفل/فتح الطبقة">🔓 قفل</button>
-          <button id="hideBtn" type="button" title="إخفاء/إظهار الطبقة">👁 إخفاء</button>
-        </div>
-        <div id="layerList" class="layerList"></div>
-      </section>
-
-      <!-- ==================== BOTTOM: CANVAS SETTINGS ==================== -->
-      <div class="bottom">
-        <div class="panel-title">إعدادات المشروع</div>
-
-        <label class="check">
-          <input id="transparent" type="checkbox">
-          خلفية شفافة
-        </label>
-
-        <div class="grid2">
-          <div>
-            <label for="bgColor">لون الخلفية</label>
-            <input id="bgColor" type="color" value="#15171d">
-          </div>
-          <div>
-            <label for="bgImageBtn">صورة خلفية</label>
-            <button id="bgImageBtn" type="button" class="wide" style="padding:9px">📷 اختر</button>
-            <input id="bgImageInput" type="file" accept="image/*" class="sr-only">
-          </div>
-        </div>
-
-        <div class="grid2">
-          <label for="W">العرض
-            <input id="W" type="number" min="1" max="10000" value="1200">
-          </label>
-          <label for="H">الارتفاع
-            <input id="H" type="number" min="1" max="10000" value="650">
-          </label>
-        </div>
-
-        <label class="check"><input id="gridToggle" type="checkbox"> إظهار الشبكة</label>
-        <label class="check"><input id="snapToggle" type="checkbox" checked> محاذاة ذكية (Snap)</label>
-
-        <button id="delete" type="button" class="danger wide">🗑 حذف العنصر المحدد</button>
-        <button id="clearProject" type="button" class="danger wide">♻ مسح المشروع بالكامل</button>
-      </div>
-
-    </aside>
-
-    <!-- ==================== WORKSPACE ==================== -->
-    <main class="workspace">
-      <div class="workspaceHead">
-        <div>
-          <b>المسرح</b>
-          <span>اضغط أي عنصر ثم اسحبه — كل عنصر مستقل</span>
-        </div>
-        <div class="row">
-          <div class="zoomControls">
-            <button id="zoomOut" type="button" aria-label="تصغير">−</button>
-            <span id="zoomLevel">100%</span>
-            <button id="zoomIn" type="button" aria-label="تكبير">+</button>
-            <button id="zoomReset" type="button" aria-label="إعادة ضبط التكبير">⤢</button>
-          </div>
-          <span class="live">● LIVE</span>
-        </div>
-      </div>
-
-      <div class="stageWrap" id="stageWrap">
-        <div class="stageInner" id="stageInner">
-          <canvas id="canvas" width="1200" height="650"></canvas>
-        </div>
-      </div>
-
-      <div class="toolbar">
-        <button id="center" type="button">⦿ توسيط</button>
-        <button id="reset" type="button">⟳ إعادة ضبط العنصر</button>
-        <button id="copyBtn" type="button">⧉ نسخ</button>
-        <button id="pasteBtn" type="button">📋 لصق</button>
-      </div>
-    </main>
   </div>
+</header>
 
-  <!-- ==================== SEO CONTENT ==================== -->
-  <section class="seo-content" aria-label="عن Arabify">
-    <h1>Arabify — محرر زخرفة وتصميم النصوص والأسماء العربية أونلاين</h1>
-    <p>
-      Arabify محرر عربي مجاني يساعدك على إنشاء تصاميم احترافية للنصوص والأسماء
-      العربية مباشرة من المتصفح، بدون تثبيت أي برنامج. اختر الخط والألوان
-      والتدرجات، أضف الإيموجي والتأثيرات مثل الظل وGlow وThreeD، ثم حمّل
-      تصميمك النهائي بصيغة PNG أو JPG أو WebP بجودة عالية.
-    </p>
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+  <div class="container">
+    <span class="hero-eyebrow">✦ منصة عربية جديدة للتصميم والمشاركة</span>
+    <h1>صمّم نصوصك العربية، <span>وشاركها مع العالم</span></h1>
+    <p>Arabify يجمع بين محرر تصميم نصوص عربي احترافي ومجتمع لاكتشاف ونشر التصاميم — من زخرفة الأسماء إلى شعارات السوشيال ميديا.</p>
+    <div class="hero-actions">
+      <a href="editor.html" class="btn btn-primary">✦ ابدأ التصميم</a>
+      <a href="explore.html" class="btn btn-ghost">استكشف المشاريع</a>
+    </div>
+  </div>
+</section>
 
-    <h2>زخرفة الأسماء العربية</h2>
-    <p>
-      صمّم اسمك العربي بطريقة مميزة باستخدام مجموعة من الخطوط العربية
-      الحديثة، واختر الحجم واللون والتدرج والتأثير المناسب لتصميمك، سواء
-      لاسم لعبة أو حساب تواصل اجتماعي أو شعار شخصي.
-    </p>
+<main class="container">
 
-    <h3>زخرفة اسم للألعاب مثل Minecraft وDiscord</h3>
-    <p>
-      يوفر Arabify قوالب جاهزة لزخرفة أسماء الألعاب مثل Minecraft وDiscord
-      وPUBG وFree Fire، بتأثيرات نيون وذهبية ونارية جاهزة للاستخدام الفوري
-      مع إمكانية التعديل الكامل عليها.
-    </p>
-
-    <h2>Arabic Text Generator</h2>
-    <p>
-      Arabify Arabic Text Maker أداة مجانية لتصميم النصوص العربية وإضافة
-      التأثيرات والإيموجي وإنشاء صور نصية مناسبة للتصاميم ومواقع التواصل
-      وصور الغلاف والألعاب.
-    </p>
-
-    <h2>مميزات Arabify</h2>
-    <ul>
-      <li>تصميم عدد غير محدود من النصوص العربية المستقلة.</li>
-      <li>اختيار من بين عشرة خطوط عربية احترافية.</li>
-      <li>إضافة الإيموجي كعناصر مستقلة بجودة عالية.</li>
-      <li>تغيير الألوان والتدرجات والمحاذاة وتباعد الأحرف.</li>
-      <li>إضافة الحدود والظل وGlow ولمعة وتأثير ThreeD.</li>
-      <li>تحريك وتكبير وتدوير العناصر بحرية على المسرح.</li>
-      <li>تكبير/تصغير المسرح (Zoom) ومحاذاة ذكية (Snap).</li>
-      <li>تنظيم العناصر عبر نظام طبقات كامل مع قفل وإخفاء.</li>
-      <li>قوالب جاهزة لليوتيوب والألعاب والأسماء العربية.</li>
-      <li>حفظ تلقائي للمشروع واسترجاعه بعد إغلاق المتصفح.</li>
-      <li>تصدير واستيراد المشروع كملف JSON.</li>
-      <li>تحميل التصميم بصيغة PNG أو JPG أو WebP وبدقة تصل 3x.</li>
-      <li>إمكانية إنشاء خلفية شفافة أو لون أو صورة خلفية.</li>
-      <li>مجاني بالكامل ويعمل مباشرة من المتصفح على الجوال والكمبيوتر.</li>
-    </ul>
-
-    <h2 id="faq">أسئلة شائعة</h2>
-    <h3>هل Arabify مجاني؟</h3>
-    <p>نعم، Arabify مجاني بالكامل لتصميم وتحميل تصاميمك بدون قيود.</p>
-    <h3>هل يحفظ Arabify تصميمي تلقائيًا؟</h3>
-    <p>نعم، يحفظ المشروع تلقائيًا في متصفحك، ويمكنك أيضًا تصديره كملف للاحتفاظ به.</p>
+  <!-- ==================== LATEST ==================== -->
+  <section class="section">
+    <div class="section-head">
+      <div><h2>أحدث التصاميم</h2><p>أعمال نُشرت للتو من مجتمع Arabify</p></div>
+      <a href="explore.html" class="section-more">عرض الكل ←</a>
+    </div>
+    <div class="masonry" id="feedLatest"></div>
   </section>
 
-  <footer class="siteFooter">
-    Arabify — أداة زخرفة النصوص العربية · جميع الحقوق محفوظة
-  </footer>
+  <!-- ==================== POPULAR ==================== -->
+  <section class="section">
+    <div class="section-head">
+      <div><h2>الأكثر شعبية</h2><p>الأعلى إعجابًا هذا الأسبوع</p></div>
+      <a href="explore.html?sort=popular" class="section-more">عرض الكل ←</a>
+    </div>
+    <div class="masonry" id="feedPopular"></div>
+  </section>
 
-  <div class="toastWrap" id="toastWrap" aria-live="polite"></div>
+  <!-- ==================== FEATURED ARABIC ==================== -->
+  <section class="section">
+    <div class="section-head">
+      <div><h2>تصاميم عربية مميزة</h2><p>مختارات من فريق Arabify</p></div>
+      <a href="explore.html?category=خط عربي" class="section-more">عرض الكل ←</a>
+    </div>
+    <div class="masonry" id="feedFeatured"></div>
+  </section>
 
-  <!-- ==================== JAVASCRIPT ==================== -->
-  <script src="script.js"></script>
+</main>
+
+<footer class="site-footer container">
+  <span>© 2026 Arabify</span>
+  <span>صُنع لمجتمع المصممين العرب</span>
+</footer>
+
+<!-- ==================== LOGIN MODAL ==================== -->
+<div class="modal-backdrop" id="loginModal">
+  <div class="modal">
+    <button class="modal-close" data-modal-close>✕</button>
+    <h3>مرحبًا بعودتك</h3>
+    <p class="sub">سجّل الدخول لحفظ ونشر تصاميمك ومتابعة مصممين آخرين.</p>
+    <button class="gbtn" id="googleSignInBtn">
+      <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.92c1.7-1.57 2.68-3.88 2.68-6.62z"/><path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.92-2.26c-.81.54-1.85.86-3.04.86-2.34 0-4.32-1.58-5.03-3.7H.96v2.33A9 9 0 0 0 9 18z"/><path fill="#FBBC05" d="M3.97 10.72A5.4 5.4 0 0 1 3.68 9c0-.6.1-1.18.29-1.72V4.95H.96A9 9 0 0 0 0 9c0 1.45.35 2.83.96 4.05l3.01-2.33z"/><path fill="#EA4335" d="M9 3.58c1.32 0 2.51.45 3.44 1.35l2.58-2.58C13.46.89 11.43 0 9 0A9 9 0 0 0 .96 4.95l3.01 2.33C4.68 5.16 6.66 3.58 9 3.58z"/></svg>
+      المتابعة عبر Google
+    </button>
+    <div class="divider-or">أو</div>
+    <label for="loginEmail">البريد الإلكتروني</label>
+    <input id="loginEmail" type="email" placeholder="you@example.com">
+    <label for="loginPass">كلمة المرور</label>
+    <input id="loginPass" type="text" placeholder="••••••••">
+    <button class="btn btn-primary" style="width:100%;margin-top:18px" id="emailLoginBtn">تسجيل الدخول</button>
+    <p class="sub" style="text-align:center;margin-top:14px">ليس لديك حساب؟ <a href="#" style="color:var(--accent-solid);font-weight:700">أنشئ حسابًا</a></p>
+  </div>
+</div>
+
+<script type="module">
+  import { mountMasonryFeed, toast, isBackendConfigured } from "./js/app.js";
+  mountMasonryFeed(document.getElementById("feedLatest"), { pageSize: 10 });
+  mountMasonryFeed(document.getElementById("feedPopular"), { pageSize: 10 });
+  mountMasonryFeed(document.getElementById("feedFeatured"), { category: "خط عربي", pageSize: 10 });
+
+  document.getElementById("emailLoginBtn")?.addEventListener("click", () => {
+    if (!isBackendConfigured()) {
+      toast("لم يتم ربط Backend بعد — هذه معاينة تصميم فقط.", "err");
+    }
+  });
+</script>
 </body>
 </html>
