@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>الملف الشخصي | Arabify</title>
+<link rel="icon" href="icon.ico" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<style>
+  .profile-head{display:flex;gap:22px;align-items:center;padding:44px 0 20px;flex-wrap:wrap}
+  .profile-avatar{width:100px;height:100px;border-radius:50%;border:3px solid var(--panel);box-shadow:0 0 0 1px var(--line)}
+  .profile-stats{display:flex;gap:22px;margin-top:10px;font-size:13.5px;color:var(--ink-dim)}
+  .profile-stats b{color:var(--ink)}
+  .tabbar{display:flex;gap:6px;border-bottom:1px solid var(--line);margin:20px 0}
+  .tabbtn{padding:12px 18px;font-size:13.5px;font-weight:700;color:var(--ink-faint);border-bottom:2px solid transparent;cursor:pointer;background:none;border-top:0;border-inline:0}
+  .tabbtn.active{color:var(--ink);border-bottom-color:var(--accent-solid)}
+</style>
+</head>
+<body>
+<header class="nav"><div class="container">
+  <a href="index.html" class="nav-brand"><div class="nav-logo">✦</div><b>Arabify</b></a>
+  <nav class="nav-links"><a href="index.html" class="nav-link">الرئيسية</a><a href="explore.html" class="nav-link">استكشف</a><a href="editor.html" class="nav-link">إنشاء</a></nav>
+  <label class="nav-search">🔍<input type="search" placeholder="بحث..." aria-label="بحث"></label>
+  <div class="nav-right">
+    
+    <div id="navGuest" style="display:flex;gap:8px"><button class="btn btn-ghost" data-modal-open="loginModal">تسجيل الدخول</button><a href="editor.html" class="btn btn-primary">ابدأ التصميم</a></div>
+    <div id="navUser" class="menu-wrap" style="display:none"><button id="navMenuToggle" style="background:none;border:0;cursor:pointer;padding:0"><img id="navAvatarImg" class="nav-avatar" src="assets/default-avatar.svg" alt=""></button>
+      <div id="navUserMenu" class="menu"><a class="menu-item" href="dashboard.html">🏠 لوحة التحكم</a><a class="menu-item" href="profile.html">👤 ملفي الشخصي</a><a class="menu-item" href="saved.html">🔖 المحفوظات</a><a class="menu-item" href="settings.html">⚙️ الإعدادات</a><div class="menu-sep"></div><button class="menu-item" id="logoutBtn">🚪 تسجيل الخروج</button></div>
+    </div>
+  </div>
+</div></header>
+
+<main class="container">
+  <div class="profile-head">
+    <img class="profile-avatar" src="https://api.dicebear.com/7.x/initials/svg?seed=Arabify" alt="">
+    <div>
+      <h1 style="font-family:var(--font-display);margin:0 0 4px;font-size:22px">اسم المستخدم</h1>
+      <p style="margin:0;color:var(--ink-dim);font-size:13.5px">@username · انضم في ٢٠٢٦</p>
+      <div class="profile-stats">
+        <span><b>24</b> مشروع</span><span><b>1.2K</b> متابِع</span><span><b>340</b> متابَع</span>
+      </div>
+    </div>
+    <div style="margin-inline-start:auto;display:flex;gap:8px">
+      <button class="btn btn-primary" id="followBtn">متابعة</button>
+      <button class="btn btn-ghost" id="shareProfileBtn">مشاركة</button>
+    </div>
+  </div>
+
+  <div class="tabbar" role="tablist">
+    <button class="tabbtn active" data-tab="projects">المشاريع</button>
+    <button class="tabbtn" data-tab="saved">المحفوظات</button>
+    <button class="tabbtn" data-tab="liked">الإعجابات</button>
+  </div>
+
+  <div class="masonry" id="profileFeed"></div>
+</main>
+
+<footer class="site-footer container"><span>© 2026 Arabify</span><span>صُنع لمجتمع المصممين العرب</span></footer>
+
+<div class="modal-backdrop" id="loginModal"><div class="modal"><button class="modal-close" data-modal-close>✕</button><h3>مرحبًا بعودتك</h3><p class="sub">سجّل الدخول لمتابعة هذا المصمم.</p><button class="gbtn" id="googleSignInBtn">المتابعة عبر Google</button></div></div>
+
+<script type="module">
+  import { mountMasonryFeed, toast } from "./js/app.js";
+  const feed = mountMasonryFeed(document.getElementById("profileFeed"), { pageSize: 12 });
+  document.querySelectorAll(".tabbtn").forEach(btn => btn.addEventListener("click", () => {
+    document.querySelectorAll(".tabbtn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    feed.reload(null);
+  }));
+  document.getElementById("followBtn").addEventListener("click", (e) => {
+    const on = e.target.textContent.trim() === "متابعة";
+    e.target.textContent = on ? "متابَع ✓" : "متابعة";
+    toast(on ? "أصبحت تتابع هذا الحساب" : "تم إلغاء المتابعة");
+  });
+  document.getElementById("shareProfileBtn").addEventListener("click", () => {
+    navigator.clipboard?.writeText(location.href);
+    toast("تم نسخ رابط الملف الشخصي");
+  });
+</script>
+</body>
+</html>

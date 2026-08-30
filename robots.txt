@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard.html
+Disallow: /settings.html
+Disallow: /notifications.html
+Disallow: /saved.html
+Sitemap: https://arabify.ishak08bg.workers.dev/sitemap.xml

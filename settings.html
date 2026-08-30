@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>الإعدادات | Arabify</title>
+<link rel="icon" href="icon.ico" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<style>
+  .settings-wrap{display:grid;grid-template-columns:220px 1fr;gap:30px;padding:34px 0}
+  @media (max-width:760px){.settings-wrap{grid-template-columns:1fr}}
+  .settings-nav{display:flex;flex-direction:column;gap:4px}
+  .settings-nav button{text-align:right;background:none;border:0;padding:11px 14px;border-radius:10px;color:var(--ink-dim);font-size:13.5px;font-weight:600;cursor:pointer}
+  .settings-nav button.active{background:var(--panel-2);color:var(--ink)}
+  .settings-panel{display:none;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-lg);padding:26px}
+  .settings-panel.active{display:block}
+  .settings-panel h3{margin:0 0 18px;font-family:var(--font-display);font-size:17px}
+  .settings-panel label{display:block;font-size:12.5px;font-weight:700;color:var(--ink-dim);margin:16px 0 6px}
+  .settings-panel input[type=text],.settings-panel textarea{
+    width:100%;background:var(--panel-2);border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:11px 13px;font-size:13.5px}
+  .switch-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--line-soft)}
+  .danger-zone{margin-top:24px;padding-top:18px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<header class="nav"><div class="container">
+  <a href="index.html" class="nav-brand"><div class="nav-logo">✦</div><b>Arabify</b></a>
+  <nav class="nav-links"><a href="index.html" class="nav-link">الرئيسية</a><a href="explore.html" class="nav-link">استكشف</a><a href="editor.html" class="nav-link">إنشاء</a></nav>
+  <label class="nav-search">🔍<input type="search" placeholder="بحث..." aria-label="بحث"></label>
+  <div class="nav-right">
+    
+    <div id="navGuest" style="display:flex;gap:8px"><button class="btn btn-ghost" data-modal-open="loginModal">تسجيل الدخول</button><a href="editor.html" class="btn btn-primary">ابدأ التصميم</a></div>
+    <div id="navUser" class="menu-wrap" style="display:none"><button id="navMenuToggle" style="background:none;border:0;cursor:pointer;padding:0"><img id="navAvatarImg" class="nav-avatar" src="assets/default-avatar.svg" alt=""></button>
+      <div id="navUserMenu" class="menu"><a class="menu-item" href="dashboard.html">🏠 لوحة التحكم</a><a class="menu-item" href="profile.html">👤 ملفي الشخصي</a><a class="menu-item" href="saved.html">🔖 المحفوظات</a><a class="menu-item" href="settings.html">⚙️ الإعدادات</a><div class="menu-sep"></div><button class="menu-item" id="logoutBtn">🚪 تسجيل الخروج</button></div>
+    </div>
+  </div>
+</div></header>
+
+<main class="container">
+  <h1 style="font-family:var(--font-display);font-size:24px;margin:34px 0 0">الإعدادات</h1>
+  <div class="settings-wrap">
+    <nav class="settings-nav">
+      <button class="active" data-panel="account">الحساب</button>
+      <button data-panel="profile">الملف الشخصي</button>
+      <button data-panel="privacy">الخصوصية</button>
+      <button data-panel="notifications">الإشعارات</button>
+    </nav>
+
+    <div>
+      <section class="settings-panel active" id="panel-account">
+        <h3>الحساب</h3>
+        <label>البريد الإلكتروني</label><input type="text" value="you@example.com" disabled>
+        <label>اسم المستخدم</label><input type="text" id="usernameInput" value="username">
+        <div class="danger-zone">
+          <button class="btn" style="border-color:var(--danger);color:var(--danger)" id="deleteAccBtn">حذف الحساب نهائيًا</button>
+        </div>
+      </section>
+
+      <section class="settings-panel" id="panel-profile">
+        <h3>الملف الشخصي</h3>
+        <label>الاسم المعروض</label><input type="text" value="اسم المستخدم">
+        <label>نبذة تعريفية (Bio)</label><textarea rows="3" placeholder="اكتب نبذة عنك..."></textarea>
+        <button class="btn btn-primary" style="margin-top:16px" id="saveProfileBtn">حفظ التغييرات</button>
+      </section>
+
+      <section class="settings-panel" id="panel-privacy">
+        <h3>الخصوصية</h3>
+        <div class="switch-row"><span>حساب خاص (مشاريعك تظهر لمتابعيك فقط)</span><input type="checkbox"></div>
+        <div class="switch-row"><span>السماح للآخرين بمشاهدة إعجاباتك</span><input type="checkbox" checked></div>
+      </section>
+
+      <section class="settings-panel" id="panel-notifications">
+        <h3>الإشعارات</h3>
+        <div class="switch-row"><span>إعجاب على مشروعك</span><input type="checkbox" checked></div>
+        <div class="switch-row"><span>متابعون جدد</span><input type="checkbox" checked></div>
+        <div class="switch-row"><span>تعليقات جديدة</span><input type="checkbox" checked></div>
+        <div class="switch-row"><span>تنبيهات Trending</span><input type="checkbox"></div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer container"><span>© 2026 Arabify</span><span>صُنع لمجتمع المصممين العرب</span></footer>
+
+<div class="modal-backdrop" id="loginModal"><div class="modal"><button class="modal-close" data-modal-close>✕</button><h3>مرحبًا بعودتك</h3><button class="gbtn" id="googleSignInBtn">المتابعة عبر Google</button></div></div>
+
+<script type="module">
+  import { toast } from "./js/app.js";
+  document.querySelectorAll(".settings-nav button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".settings-nav button").forEach(b => b.classList.remove("active"));
+      document.querySelectorAll(".settings-panel").forEach(p => p.classList.remove("active"));
+      btn.classList.add("active");
+      document.getElementById("panel-" + btn.dataset.panel).classList.add("active");
+    });
+  });
+  document.getElementById("saveProfileBtn").addEventListener("click", () => toast("تم حفظ التغييرات"));
+  document.getElementById("deleteAccBtn").addEventListener("click", () => {
+    if (confirm("سيتم حذف حسابك وكل مشاريعك نهائيًا. هل أنت متأكد؟")) toast("تم إرسال طلب الحذف", "err");
+  });
+</script>
+</body>
+</html>

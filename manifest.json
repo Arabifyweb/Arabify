@@ -1,0 +1,13 @@
+{
+  "name": "Arabify — زخرفة النصوص العربية",
+  "short_name": "Arabify",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#08090d",
+  "theme_color": "#08090d",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" }
+  ]
+}

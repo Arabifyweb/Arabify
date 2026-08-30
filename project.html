@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title id="pageTitle">مشروع | Arabify</title>
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="icon.ico" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<style>
+  .project-wrap{display:grid;grid-template-columns:1.3fr .9fr;gap:34px;padding:34px 0}
+  @media (max-width:860px){.project-wrap{grid-template-columns:1fr}}
+  .project-image{border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--line);background:var(--panel)}
+  .owner-row{display:flex;align-items:center;gap:10px;margin:16px 0}
+  .owner-row img{width:42px;height:42px;border-radius:50%}
+  .action-row{display:flex;gap:8px;margin:18px 0;flex-wrap:wrap}
+  .tag-row{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0}
+  .tag{background:var(--panel-2);border:1px solid var(--line);border-radius:var(--radius-pill);padding:5px 12px;font-size:12px;color:var(--ink-dim)}
+  .comment{display:flex;gap:10px;padding:12px 0;border-bottom:1px solid var(--line-soft)}
+  .comment img{width:32px;height:32px;border-radius:50%}
+  .comment b{font-size:13px}
+  .comment p{margin:3px 0 0;font-size:13.5px;color:var(--ink-dim)}
+</style>
+</head>
+<body>
+<header class="nav"><div class="container">
+  <a href="index.html" class="nav-brand"><div class="nav-logo">✦</div><b>Arabify</b></a>
+  <nav class="nav-links"><a href="index.html" class="nav-link">الرئيسية</a><a href="explore.html" class="nav-link">استكشف</a><a href="editor.html" class="nav-link">إنشاء</a></nav>
+  <label class="nav-search">🔍<input type="search" placeholder="بحث..." aria-label="بحث"></label>
+  <div class="nav-right">
+    
+    <div id="navGuest" style="display:flex;gap:8px"><button class="btn btn-ghost" data-modal-open="loginModal">تسجيل الدخول</button><a href="editor.html" class="btn btn-primary">ابدأ التصميم</a></div>
+    <div id="navUser" class="menu-wrap" style="display:none"><button id="navMenuToggle" style="background:none;border:0;cursor:pointer;padding:0"><img id="navAvatarImg" class="nav-avatar" src="assets/default-avatar.svg" alt=""></button>
+      <div id="navUserMenu" class="menu"><a class="menu-item" href="dashboard.html">🏠 لوحة التحكم</a><a class="menu-item" href="profile.html">👤 ملفي الشخصي</a><a class="menu-item" href="saved.html">🔖 المحفوظات</a><a class="menu-item" href="settings.html">⚙️ الإعدادات</a><div class="menu-sep"></div><button class="menu-item" id="logoutBtn">🚪 تسجيل الخروج</button></div>
+    </div>
+  </div>
+</div></header>
+
+<main class="container">
+  <div class="project-wrap">
+    <div class="project-image"><img id="mainImg" alt="" style="width:100%"></div>
+    <div>
+      <h1 id="projTitle" style="font-family:var(--font-display);font-size:24px;margin:0"></h1>
+      <p id="projDesc" style="color:var(--ink-dim);margin:10px 0 0"></p>
+      <div class="tag-row" id="projTags"></div>
+
+      <div class="owner-row">
+        <img id="ownerAvatar" src="" alt="">
+        <div><b id="ownerName" style="font-size:13.5px"></b><br><span style="font-size:11.5px;color:var(--ink-faint)" id="projViews"></span></div>
+        <button class="btn btn-primary btn-sm" style="margin-inline-start:auto" id="followBtn">متابعة</button>
+      </div>
+
+      <div class="action-row">
+        <button class="btn" id="likeBtn">❤ <span id="likeCount"></span></button>
+        <button class="btn" id="saveBtn">🔖 حفظ</button>
+        <button class="btn" id="shareBtn">↗ مشاركة</button>
+        <button class="btn btn-icon" id="reportBtn" title="إبلاغ">⚑</button>
+      </div>
+
+      <h3 style="font-size:15px;margin:22px 0 4px">التعليقات</h3>
+      <div id="commentsList"></div>
+      <div style="display:flex;gap:8px;margin-top:12px">
+        <input type="text" id="commentInput" placeholder="أضف تعليقًا..." style="flex:1;background:var(--panel-2);border:1px solid var(--line);border-radius:var(--radius-pill);padding:10px 16px;color:var(--ink)">
+        <button class="btn btn-primary btn-sm" id="commentBtn">إرسال</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-head"><div><h2>مشاريع مشابهة</h2></div></div>
+  <div class="masonry" id="relatedFeed"></div>
+</main>
+
+<footer class="site-footer container"><span>© 2026 Arabify</span><span>صُنع لمجتمع المصممين العرب</span></footer>
+
+<div class="modal-backdrop" id="loginModal"><div class="modal"><button class="modal-close" data-modal-close>✕</button><h3>مرحبًا بعودتك</h3><button class="gbtn" id="googleSignInBtn">المتابعة عبر Google</button></div></div>
+
+<script type="module">
+  import { mountMasonryFeed, generateMockProjects, toast } from "./js/app.js";
+  const id = new URLSearchParams(location.search).get("id") || "demo-0";
+  const idx = Number((id.match(/\d+/) || [0])[0]);
+  const p = generateMockProjects(1, idx)[0];
+
+  document.getElementById("pageTitle").textContent = p.title + " | Arabify";
+  document.getElementById("projTitle").textContent = p.title;
+  document.getElementById("projDesc").textContent = "تصميم عربي بأسلوب " + p.category + " — صُنع باستخدام محرر Arabify.";
+  document.getElementById("projTags").innerHTML = [p.category, "عربي", "تصميم"].map(t => `<span class="tag">#${t}</span>`).join("");
+  document.getElementById("ownerName").textContent = p.owner;
+  document.getElementById("ownerAvatar").src = `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(p.owner)}`;
+  document.getElementById("projViews").textContent = p.views + " مشاهدة";
+  document.getElementById("likeCount").textContent = p.likes;
+  document.getElementById("mainImg").src = `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="${p.w*2}" height="${p.h*2}"><rect width="100%" height="100%" fill="${p.bg1}"/></svg>`)}`;
+
+  document.getElementById("likeBtn").addEventListener("click", (e) => {
+    const on = e.currentTarget.classList.toggle("btn-primary");
+    document.getElementById("likeCount").textContent = p.likes + (on ? 1 : 0);
+    toast(on ? "أعجبك هذا التصميم" : "تم إلغاء الإعجاب");
+  });
+  document.getElementById("saveBtn").addEventListener("click", () => toast("تم حفظ المشروع في مجموعاتك"));
+  document.getElementById("shareBtn").addEventListener("click", async () => {
+    if (navigator.share) { await navigator.share({ title: p.title, url: location.href }); }
+    else { navigator.clipboard?.writeText(location.href); toast("تم نسخ الرابط"); }
+  });
+  document.getElementById("reportBtn").addEventListener("click", () => toast("تم إرسال البلاغ، شكرًا لمساعدتك"));
+  document.getElementById("followBtn").addEventListener("click", (e) => {
+    const on = e.target.textContent.trim() === "متابعة";
+    e.target.textContent = on ? "متابَع ✓" : "متابعة";
+  });
+
+  const commentsList = document.getElementById("commentsList");
+  document.getElementById("commentBtn").addEventListener("click", () => {
+    const input = document.getElementById("commentInput");
+    if (!input.value.trim()) return;
+    commentsList.insertAdjacentHTML("afterbegin", `
+      <div class="comment"><img src="https://api.dicebear.com/7.x/initials/svg?seed=You" alt="">
+        <div><b>أنت</b><p>${input.value.replace(/</g,"&lt;")}</p></div></div>`);
+    input.value = "";
+  });
+
+  mountMasonryFeed(document.getElementById("relatedFeed"), { category: p.category, pageSize: 10 });
+</script>
+</body>
+</html>

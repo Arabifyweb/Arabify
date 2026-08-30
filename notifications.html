@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>الإشعارات | Arabify</title>
+<link rel="icon" href="icon.ico" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<style>
+  .notif{display:flex;gap:12px;align-items:center;padding:14px 10px;border-radius:12px;cursor:pointer}
+  .notif:hover{background:var(--panel-2)}
+  .notif.unread{background:color-mix(in srgb, var(--accent-1) 8%, transparent)}
+  .notif img{width:38px;height:38px;border-radius:50%}
+  .notif .txt{font-size:13.5px}
+  .notif .time{color:var(--ink-faint);font-size:11.5px;margin-inline-start:auto;flex:none}
+</style>
+</head>
+<body>
+<header class="nav"><div class="container">
+  <a href="index.html" class="nav-brand"><div class="nav-logo">✦</div><b>Arabify</b></a>
+  <nav class="nav-links"><a href="index.html" class="nav-link">الرئيسية</a><a href="explore.html" class="nav-link">استكشف</a><a href="editor.html" class="nav-link">إنشاء</a></nav>
+  <div class="nav-right" style="margin-inline-start:auto">
+    
+    <div id="navGuest" style="display:flex;gap:8px"><button class="btn btn-ghost" data-modal-open="loginModal">تسجيل الدخول</button><a href="editor.html" class="btn btn-primary">ابدأ التصميم</a></div>
+    <div id="navUser" class="menu-wrap" style="display:none"><button id="navMenuToggle" style="background:none;border:0;cursor:pointer;padding:0"><img id="navAvatarImg" class="nav-avatar" src="assets/default-avatar.svg" alt=""></button>
+      <div id="navUserMenu" class="menu"><a class="menu-item" href="dashboard.html">🏠 لوحة التحكم</a><a class="menu-item" href="profile.html">👤 ملفي الشخصي</a><a class="menu-item" href="saved.html">🔖 المحفوظات</a><a class="menu-item" href="settings.html">⚙️ الإعدادات</a><div class="menu-sep"></div><button class="menu-item" id="logoutBtn">🚪 تسجيل الخروج</button></div>
+    </div>
+  </div>
+</div></header>
+
+<main class="container" style="max-width:640px;padding-top:30px">
+  <div class="section-head"><div><h2>الإشعارات</h2></div>
+    <button class="section-more" id="markAllBtn" style="background:none;border:0;cursor:pointer">تعليم الكل كمقروء</button>
+  </div>
+  <div id="notifList"></div>
+</main>
+
+<footer class="site-footer container"><span>© 2026 Arabify</span><span>صُنع لمجتمع المصممين العرب</span></footer>
+
+<div class="modal-backdrop" id="loginModal"><div class="modal"><button class="modal-close" data-modal-close>✕</button><h3>مرحبًا بعودتك</h3><button class="gbtn" id="googleSignInBtn">المتابعة عبر Google</button></div></div>
+
+<script type="module">
+  const mock = [
+    { icon: "❤", who: "أحمد", txt: "أعجب بمشروعك \"زخرفة اسم قيمنق\"", time: "قبل 5 دقائق", unread: true },
+    { icon: "➕", who: "سلمى.", txt: "بدأت بمتابعتك", time: "قبل ساعة", unread: true },
+    { icon: "🔖", who: "Team Arabify", txt: "حفظ مشروعك \"شعار متجر\"", time: "قبل 3 ساعات", unread: false },
+    { icon: "🔥", who: "النظام", txt: "مشروعك \"اقتباس ملهم\" أصبح Trending", time: "أمس", unread: false },
+  ];
+  document.getElementById("notifList").innerHTML = mock.map(n => `
+    <div class="notif ${n.unread ? "unread" : ""}">
+      <img src="https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(n.who)}" alt="">
+      <div class="txt"><b>${n.who}</b> ${n.txt}</div>
+      <span class="time">${n.time}</span>
+    </div>`).join("");
+  document.getElementById("markAllBtn").addEventListener("click", () => {
+    document.querySelectorAll(".notif.unread").forEach(el => el.classList.remove("unread"));
+  });
+</script>
+</body>
+</html>

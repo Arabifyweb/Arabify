@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>استكشف التصاميم | Arabify</title>
+<meta name="description" content="استكشف آلاف التصاميم العربية المنشورة على Arabify: زخرفة أسماء، شعارات، اقتباسات، خلفيات والمزيد.">
+<link rel="canonical" href="https://arabify.ishak08bg.workers.dev/explore.html">
+<link rel="icon" href="icon.ico" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="container">
+    <a href="index.html" class="nav-brand">
+      <div class="nav-logo">✦</div>
+      <b>Arabify</b>
+    </a>
+    <nav class="nav-links" aria-label="التنقل الرئيسي">
+      <a href="index.html" class="nav-link">الرئيسية</a>
+      <a href="explore.html" class="nav-link active">استكشف</a>
+      <a href="editor.html" class="nav-link">إنشاء</a>
+    </nav>
+    <label class="nav-search">
+      🔍<input id="exploreSearch" type="search" placeholder="ابحث عن تصاميم، مستخدمين، وسوم..." aria-label="بحث">
+    </label>
+    <div class="nav-right">
+      
+      <div id="navGuest" style="display:flex;gap:8px">
+        <button class="btn btn-ghost" data-modal-open="loginModal">تسجيل الدخول</button>
+        <a href="editor.html" class="btn btn-primary">ابدأ التصميم</a>
+      </div>
+      <div id="navUser" class="menu-wrap" style="display:none">
+        <button id="navMenuToggle" style="background:none;border:0;cursor:pointer;padding:0">
+          <img id="navAvatarImg" class="nav-avatar" src="assets/default-avatar.svg" alt="حسابك">
+        </button>
+        <div id="navUserMenu" class="menu">
+          <a class="menu-item" href="dashboard.html">🏠 لوحة التحكم</a>
+          <a class="menu-item" href="profile.html">👤 ملفي الشخصي</a>
+          <a class="menu-item" href="saved.html">🔖 المحفوظات</a>
+          <a class="menu-item" href="settings.html">⚙️ الإعدادات</a>
+          <div class="menu-sep"></div>
+          <button class="menu-item" id="logoutBtn">🚪 تسجيل الخروج</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container" style="padding-top:30px">
+  <div class="section-head">
+    <div><h2 style="font-size:26px">استكشف</h2><p>تصفّح تصاميم المجتمع حسب التصنيف</p></div>
+  </div>
+
+  <div class="chipbar" id="sortBar">
+    <button class="chip active" data-sort="latest">الأحدث</button>
+    <button class="chip" data-sort="trending">الرائج</button>
+    <button class="chip" data-sort="popular">الأكثر شعبية</button>
+    <button class="chip" data-sort="views">الأكثر مشاهدة</button>
+  </div>
+
+  <div class="chipbar" id="categoryBar"></div>
+
+  <div class="masonry" id="exploreFeed"></div>
+</main>
+
+<footer class="site-footer container">
+  <span>© 2026 Arabify</span>
+  <span>صُنع لمجتمع المصممين العرب</span>
+</footer>
+
+<div class="modal-backdrop" id="loginModal">
+  <div class="modal">
+    <button class="modal-close" data-modal-close>✕</button>
+    <h3>مرحبًا بعودتك</h3>
+    <p class="sub">سجّل الدخول لحفظ ونشر تصاميمك.</p>
+    <button class="gbtn" id="googleSignInBtn">المتابعة عبر Google</button>
+  </div>
+</div>
+
+<script type="module">
+  import { mountMasonryFeed, CATEGORIES, toast } from "./js/app.js";
+
+  const catBar = document.getElementById("categoryBar");
+  catBar.innerHTML = CATEGORIES.map((c, i) =>
+    `<button class="chip ${i === 0 ? "active" : ""}" data-cat="${c}">${c}</button>`
+  ).join("");
+
+  const feed = mountMasonryFeed(document.getElementById("exploreFeed"), { pageSize: 18 });
+
+  let activeCategory = "الكل";
+  catBar.addEventListener("click", (e) => {
+    const btn = e.target.closest(".chip");
+    if (!btn) return;
+    catBar.querySelectorAll(".chip").forEach((c) => c.classList.remove("active"));
+    btn.classList.add("active");
+    activeCategory = btn.dataset.cat;
+    feed.reload(activeCategory);
+  });
+
+  document.getElementById("sortBar").addEventListener("click", (e) => {
+    const btn = e.target.closest(".chip");
+    if (!btn) return;
+    document.querySelectorAll("#sortBar .chip").forEach((c) => c.classList.remove("active"));
+    btn.classList.add("active");
+    toast("ترتيب حسب: " + btn.textContent);
+    feed.reload(activeCategory);
+  });
+
+  // معالجة رابط ?category= القادم من الصفحة الرئيسية
+  const params = new URLSearchParams(location.search);
+  const initCat = params.get("category");
+  if (initCat && CATEGORIES.includes(initCat)) {
+    const target = [...catBar.querySelectorAll(".chip")].find((c) => c.dataset.cat === initCat);
+    target?.click();
+  }
+</script>
+</body>
+</html>
